@@ -11,6 +11,7 @@ import { employees } from '@src/app/shared/data/employees';
 })
 export class EmployeeListComponent implements AfterViewInit {
   search = '';
+
   displayedColumns: string[] = [
     'id',
     'firstName',
