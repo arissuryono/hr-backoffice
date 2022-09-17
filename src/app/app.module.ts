@@ -12,6 +12,8 @@ import { ViewEmployeeComponent } from './components/employees/view-employee/view
 import { LayoutComponent } from './components/layout/layout.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AuthService } from './shared/services/auth.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,9 +29,11 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     BrowserAnimationsModule,
     MaterialModule,
     MatPaginatorModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   exports: [MaterialModule],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
