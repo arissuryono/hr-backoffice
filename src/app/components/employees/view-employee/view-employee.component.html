@@ -4,7 +4,7 @@
   <h1 class="h2">Add Employee</h1>
   <div class="btn-toolbar mb-2 mb-md-0">
     <div class="btn-group me-2">
-      <a routerLink="/app/employees">
+      <a routerLink="/app/employees" [queryParams]="queryParams">
         <button type="button" class="btn btn-sm btn-outline-secondary">
           back
         </button>
@@ -125,7 +125,12 @@
 
 <div class="d-flex flex-row-reverse">
   <div class="btn-save">
-    <button type="submit" class="btn btn-primary" routerLink="/app/employees">
+    <button
+      type="submit"
+      class="btn btn-primary"
+      routerLink="/app/employees"
+      [queryParams]="queryParams"
+    >
       OK
     </button>
   </div>

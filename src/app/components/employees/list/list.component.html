@@ -84,7 +84,8 @@
         <div class="d-flex justify-content-center">
           <button
             class="btn btn-warning m-2"
-            [routerLink]="'/app/employees/' + element.id"
+            [routerLink]="['/app/employees/' + element.id]"
+            [queryParams]="searchParams"
           >
             edit
           </button>

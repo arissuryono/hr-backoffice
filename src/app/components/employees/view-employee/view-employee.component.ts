@@ -12,6 +12,7 @@ export class ViewEmployeeComponent implements OnInit {
   strId: string | undefined;
   employee: Employee | any;
   employees: Employee[];
+  queryParams = {};
 
   constructor(private route: ActivatedRoute) {
     this.employees = employees;
@@ -23,5 +24,11 @@ export class ViewEmployeeComponent implements OnInit {
     this.employee = this.employees.find(
       (employee) => employee.id.toString() === this.strId
     );
+
+    this.route.queryParams.subscribe((params) => {
+      this.queryParams = {
+        ...(params['search'] && { search: params['search'] }),
+      };
+    });
   }
 }
