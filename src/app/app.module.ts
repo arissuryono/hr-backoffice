@@ -11,7 +11,6 @@ import { AddEmployeeComponent } from './components/employees/add-employee/add-em
 import { ViewEmployeeComponent } from './components/employees/view-employee/view-employee.component';
 import { LayoutComponent } from './components/layout/layout.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatPaginatorModule } from '@angular/material/paginator';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from './shared/services/auth.service';
 @NgModule({
@@ -28,7 +27,6 @@ import { AuthService } from './shared/services/auth.service';
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    MatPaginatorModule,
     FormsModule,
     ReactiveFormsModule,
   ],

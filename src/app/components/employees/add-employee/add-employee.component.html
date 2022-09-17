@@ -1,1 +1,215 @@
-<p>add-employee works!</p>
+<div
+  class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"
+>
+  <h1 class="h2">Add Employee</h1>
+  <div class="btn-toolbar mb-2 mb-md-0">
+    <div class="btn-group me-2">
+      <a routerLink="/app/employees">
+        <button type="button" class="btn btn-sm btn-outline-secondary">
+          back
+        </button>
+      </a>
+    </div>
+  </div>
+</div>
+
+<h2>Employee Form</h2>
+<form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+  <div class="mb-3">
+    <label for="username" class="form-label">Username</label>
+    <input
+      type="text"
+      class="form-control"
+      id="username"
+      placeholder=""
+      formControlName="username"
+      required
+    />
+    <span
+      class="text-danger"
+      *ngIf="(registerFormControl.username.touched || submitted) && registerFormControl.username.errors?.['required']"
+    >
+      Username is required
+    </span>
+  </div>
+
+  <div class="mb-3">
+    <label for="firstName" class="form-label">First Name</label>
+    <input
+      type="text"
+      class="form-control"
+      id="firstName"
+      placeholder=""
+      formControlName="firstName"
+    />
+    <span
+      class="text-danger"
+      *ngIf="(registerFormControl.username.touched || submitted) && registerFormControl.username.errors?.['required']"
+    >
+      First Name is required
+    </span>
+  </div>
+
+  <div class="mb-3">
+    <label for="lastName" class="form-label">Last Name</label>
+    <input
+      type="text"
+      class="form-control"
+      id="lastName"
+      placeholder=""
+      formControlName="lastName"
+    />
+    <span
+      class="text-danger"
+      *ngIf="(registerFormControl.lastName.touched || submitted) && registerFormControl.lastName.errors?.['required']"
+    >
+      Last Name is required
+    </span>
+  </div>
+
+  <div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label"
+      >Email address</label
+    >
+    <input
+      type="email"
+      class="form-control"
+      id="exampleFormControlInput1"
+      placeholder="name@example.com"
+    />
+    <span
+      class="text-danger"
+      *ngIf="
+        (registerFormControl.email.touched || submitted) &&
+        registerFormControl.email.errors?.['required']
+      "
+    >
+      Email address is required
+    </span>
+    <span
+      class="text-danger"
+      *ngIf="(registerFormControl.email.touched || submitted) && registerFormControl.email.errors?.['pattern']"
+    >
+      Enter a valid email address
+    </span>
+  </div>
+
+  <div class="mb-3">
+    <label for="birthDate" class="form-label">Birth Date</label>
+    <input
+      type="date"
+      class="form-control"
+      id="birthDate"
+      placeholder=""
+      formControlName="birthDate"
+    />
+    <span
+      class="text-danger"
+      *ngIf="(registerFormControl.birthDate.touched || submitted) && registerFormControl.birthDate.errors?.['required']"
+    >
+      Birth Date is required
+    </span>
+  </div>
+
+  <!-- <div class="mb-3">
+    <label for="birthDate" class="form-label">Birth Date</label>
+    <input matInput [matDatepicker]="picker" />
+    <mat-hint>MM/DD/YYYY</mat-hint>
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+    <span
+      class="text-danger"
+      *ngIf="(registerFormControl.birthDate.touched || submitted) && registerFormControl.birthDate.errors?.['required']"
+    >
+      Birth Date is required
+    </span>
+  </div> -->
+
+  <div class="mb-3">
+    <label for="basicSalary" class="form-label">Basic Salary</label>
+    <input
+      type="number"
+      class="form-control"
+      id="basicSalary"
+      placeholder=""
+      formControlName="basicSalary"
+    />
+    <span
+      class="text-danger"
+      *ngIf="(registerFormControl.basicSalary.touched || submitted) && registerFormControl.basicSalary.errors?.['required']"
+    >
+      Basic Salary is required
+    </span>
+  </div>
+
+  <div class="mb-3">
+    <label for="status" class="form-label">Status</label>
+    <input
+      type="text"
+      class="form-control"
+      id="status"
+      placeholder=""
+      formControlName="status"
+    />
+    <span
+      class="text-danger"
+      *ngIf="(registerFormControl.status.touched || submitted) && registerFormControl.status.errors?.['required']"
+    >
+      Status is required
+    </span>
+  </div>
+
+  <div class="mb-3">
+    <label for="group" class="form-label">Group</label>
+    <input
+      type="text"
+      class="form-control"
+      id="group"
+      placeholder=""
+      formControlName="group"
+      list="datalistOptions"
+    />
+    <datalist id="datalistOptions">
+      <option *ngFor="let option of groupOptions" [value]="option"></option>
+    </datalist>
+
+    <span
+      class="text-danger"
+      *ngIf="(registerFormControl.group.touched || submitted) && registerFormControl.group.errors?.['required']"
+    >
+      Group is required
+    </span>
+  </div>
+
+  <div class="mb-3">
+    <label for="description" class="form-label">Description</label>
+    <textarea
+      class="form-control"
+      id="description"
+      rows="3"
+      formControlName="description"
+      required
+    ></textarea>
+    <span
+      class="text-danger"
+      *ngIf="(registerFormControl.description.touched || submitted) && registerFormControl.description.errors?.['required']"
+    >
+      Description is required
+    </span>
+  </div>
+
+  <div class="d-flex flex-row-reverse">
+    <div class="btn-save">
+      <button type="submit" class="btn btn-primary">SAVE</button>
+    </div>
+    <div>
+      <button
+        type="button"
+        class="btn btn-secondary"
+        routerLink="/app/employees"
+      >
+        CANCEL
+      </button>
+    </div>
+  </div>
+</form>
